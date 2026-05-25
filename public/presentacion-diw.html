@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Memoria & Guía de Estilos — Miss Whitney · DIW 2025-26</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    /* ════ VARIABLES ════ */
+    :root {
+      --burdeos:     #8c1426;
+      --burdeos-osc: #6e0f1c;
+      --dorado:      #c89b3c;
+      --roble-osc:   #3a251a;
+      --roble-med:   #5b3a26;
+      --crema:       #fbf6ef;
+      --crema-osc:   #f0e7d8;
+      --gris:        #5a5a5a;
+      --negro:       #1a1a1a;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'DM Sans', sans-serif;
+    }
+
+    /* ════ BASE ════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--crema);
+      color: var(--negro);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ════ NAV LATERAL ════ */
+    .sidenav {
+      position: fixed; left: 0; top: 0; height: 100vh;
+      width: 220px; background: var(--roble-osc);
+      padding: 2rem 0; z-index: 100;
+      display: flex; flex-direction: column;
+      box-shadow: 4px 0 20px rgba(0,0,0,.3);
+    }
+    .sidenav__logo {
+      text-align: center; padding: 0 1rem 1.5rem;
+      border-bottom: 1px solid rgba(200,155,60,.2);
+      margin-bottom: 1.2rem;
+    }
+    .sidenav__logo span {
+      display: block; font-family: var(--font-display);
+      font-style: italic; font-size: 1.4rem;
+      color: var(--crema); line-height: 1.1;
+    }
+    .sidenav__logo small {
+      font-size: .72rem; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--dorado);
+    }
+    .sidenav a {
+      display: block; padding: .55rem 1.4rem;
+      color: rgba(251,246,239,.7); font-size: .85rem;
+      text-decoration: none; border-left: 3px solid transparent;
+      transition: all .2s;
+    }
+    .sidenav a:hover, .sidenav a.active {
+      color: var(--crema); border-left-color: var(--dorado);
+      background: rgba(200,155,60,.08);
+    }
+    .sidenav__section {
+      font-size: .65rem; letter-spacing: .18em;
+      text-transform: uppercase; color: rgba(200,155,60,.5);
+      padding: 1rem 1.4rem .3rem; margin-top: .5rem;
+    }
+
+    /* ════ CONTENIDO ════ */
+    .main { margin-left: 220px; }
+
+    /* ════ SECCIONES ════ */
+    .section { padding: 4rem 3rem; border-bottom: 1px solid var(--crema-osc); }
+    .section:nth-child(even) { background: #fff; }
+    .section-label {
+      display: inline-flex; align-items: center; gap: .6rem;
+      font-size: .75rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--dorado); margin-bottom: .6rem; font-weight: 600;
+    }
+    .section-label::before {
+      content: ''; width: 24px; height: 1px; background: var(--dorado);
+    }
+    h1 { font-family: var(--font-display); font-weight: 400; font-size: 3.5rem; color: var(--roble-osc); line-height: 1.1 }
+    h2 { font-family: var(--font-display); font-weight: 400; font-size: 2.2rem; color: var(--roble-osc); margin-bottom: 1.5rem }
+    h3 { font-size: 1.05rem; font-weight: 600; color: var(--roble-med); margin: 1.8rem 0 .6rem }
+    p  { color: var(--gris); margin-bottom: .9rem; max-width: 70ch }
+
+    /* ════ PORTADA ════ */
+    .cover {
+      min-height: 100vh; display: flex; flex-direction: column;
+      justify-content: center;
+      background: var(--roble-osc);
+      background-image:
+        repeating-linear-gradient(180deg, rgba(60,30,15,.5) 0 2px, transparent 2px 28px),
+        radial-gradient(ellipse 120px 14px at 25% 35%, rgba(255,200,150,.07), transparent);
+      padding: 4rem 3rem;
+      position: relative; overflow: hidden;
+    }
+    .cover::after {
+      content:''; position:absolute; inset:0;
+      background: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=40') center/cover;
+      opacity: .12; pointer-events: none;
+    }
+    .cover-inner { position: relative; z-index: 1 }
+    .cover-badge {
+      display: inline-block; background: rgba(200,155,60,.15);
+      border: 1px solid rgba(200,155,60,.4);
+      color: var(--dorado); font-size: .78rem;
+      letter-spacing: .2em; text-transform: uppercase;
+      padding: .35rem .9rem; border-radius: 999px;
+      margin-bottom: 1.8rem;
+    }
+    .cover h1 { color: var(--crema); font-size: clamp(2.5rem,6vw,4rem); margin-bottom: .5rem }
+    .cover .sub { color: rgba(251,246,239,.65); font-size: 1.1rem; margin-bottom: 2.5rem; max-width: 50ch }
+    .cover-meta { border-top: 1px solid rgba(200,155,60,.25); padding-top: 1.5rem; display: flex; gap: 3rem; flex-wrap: wrap }
+    .cover-meta dt { font-size: .72rem; letter-spacing: .15em; text-transform: uppercase; color: var(--dorado); margin-bottom: .2rem }
+    .cover-meta dd { color: var(--crema); font-weight: 500 }
+
+    /* ════ COLORES ════ */
+    .palette { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1.5rem 0 }
+    .swatch {
+      flex: 0 0 auto; text-align: center;
+      border-radius: 12px; overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,.1);
+      width: 140px;
+    }
+    .swatch__color { height: 80px }
+    .swatch__info { padding: .6rem .5rem; background: #fff; font-size: .75rem }
+    .swatch__name { font-weight: 600; color: var(--negro); display: block }
+    .swatch__hex  { color: var(--gris); font-family: monospace }
+
+    /* ════ TIPOGRAFÍAS ════ */
+    .font-sample { border: 1px solid var(--crema-osc); border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem }
+    .font-display-sample { font-family: var(--font-display); font-size: 2rem; color: var(--roble-osc) }
+    .font-italic-sample  { font-family: var(--font-display); font-style: italic; font-size: 2rem; color: var(--burdeos) }
+    .font-body-sample    { font-family: var(--font-body); font-size: 1rem; color: var(--gris) }
+    .font-meta { font-size: .78rem; color: var(--gris); margin-top: .5rem }
+
+    /* ════ COMPONENTES ════ */
+    .comp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 1.5rem 0 }
+    .comp-card {
+      background: var(--crema); border: 1px solid var(--crema-osc);
+      border-radius: 14px; padding: 1.5rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,.05);
+    }
+    .comp-card h4 { font-size: .85rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--burdeos); margin-bottom: 1rem }
+
+    /* Botones MW */
+    .btn-mw { background: var(--burdeos); color: var(--crema); border: none; border-radius: 999px; padding: .75rem 1.5rem; font-weight: 600; cursor: pointer; transition: all .2s }
+    .btn-mw:hover { background: var(--burdeos-osc) }
+    .btn-mw-ghost { background: transparent; color: var(--burdeos); border: 1.5px solid var(--burdeos); border-radius: 999px; padding: .75rem 1.5rem; font-weight: 600; cursor: pointer; transition: all .2s }
+    .btn-mw-dorado { background: var(--dorado); color: var(--roble-osc); border: none; border-radius: 999px; padding: .75rem 1.5rem; font-weight: 700; cursor: pointer }
+
+    /* Nav-pills override */
+    .nav-pills .nav-link { color: var(--burdeos); border-radius: 999px; font-weight: 500 }
+    .nav-pills .nav-link.active { background: var(--burdeos); color: #fff }
+
+    /* ════ TECNOLOGÍAS ════ */
+    .tech-grid { display: flex; flex-wrap: wrap; gap: .8rem; margin: 1rem 0 }
+    .tech-badge {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: var(--crema-osc); border: 1px solid rgba(140,20,38,.15);
+      color: var(--roble-med); padding: .4rem .9rem;
+      border-radius: 8px; font-size: .85rem; font-weight: 500;
+    }
+    .tech-badge i { color: var(--burdeos) }
+
+    /* ════ TABLA ════ */
+    table { width: 100%; border-collapse: collapse; margin: 1.2rem 0 }
+    th { background: var(--roble-osc); color: var(--crema); padding: .7rem 1rem; text-align: left; font-size: .85rem }
+    td { padding: .65rem 1rem; border-bottom: 1px solid var(--crema-osc); font-size: .88rem; color: var(--gris) }
+    tr:nth-child(even) td { background: var(--crema-osc) }
+    .badge-ok { background: #d4edda; color: #155724; padding: .2rem .6rem; border-radius: 6px; font-size: .75rem; font-weight: 600 }
+    .badge-parcial { background: #fff3cd; color: #856404; padding: .2rem .6rem; border-radius: 6px; font-size: .75rem; font-weight: 600 }
+
+    /* ════ TIMELINE ════ */
+    .timeline { border-left: 2px solid var(--dorado); padding-left: 1.5rem; margin: 1.5rem 0 }
+    .tl-item { margin-bottom: 1.4rem; position: relative }
+    .tl-item::before {
+      content:''; width: 10px; height: 10px;
+      background: var(--dorado); border-radius: 50%;
+      position: absolute; left: -1.97rem; top: .4rem;
+    }
+    .tl-item h4 { font-size: .95rem; font-weight: 600; color: var(--roble-med); margin-bottom: .2rem }
+    .tl-item p { font-size: .85rem; margin: 0; max-width: none }
+
+    /* ════ WEBGRAFÍA ════ */
+    .wg-list { list-style: none; padding: 0 }
+    .wg-list li { padding: .5rem 0; border-bottom: 1px solid var(--crema-osc) }
+    .wg-list a { color: var(--burdeos); font-weight: 500; text-decoration: none }
+    .wg-list a:hover { text-decoration: underline }
+    .wg-list small { display: block; color: var(--gris); font-size: .82rem }
+
+    /* ════ FOOTER ════ */
+    .page-footer {
+      background: var(--roble-osc); color: rgba(251,246,239,.6);
+      text-align: center; padding: 2rem; font-size: .85rem;
+    }
+    .page-footer a { color: var(--dorado) }
+
+    /* ════ PRINT ════ */
+    @media print {
+      .sidenav { display: none }
+      .main { margin-left: 0 }
+      .section { padding: 2rem 1.5rem; break-inside: avoid }
+      .cover { min-height: auto; padding: 3rem 2rem }
+    }
+
+    /* ════ RESPONSIVE ════ */
+    @media (max-width: 768px) {
+      .sidenav { display: none }
+      .main { margin-left: 0 }
+      .section { padding: 2.5rem 1.5rem }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV LATERAL ═══ -->
+<nav class="sidenav" aria-label="Índice de contenidos">
+  <div class="sidenav__logo">
+    <span>Miss Whitney</span>
+    <small>DIW · 2025-26</small>
+  </div>
+  <span class="sidenav__section">Proyecto</span>
+  <a href="#portada">Portada</a>
+  <a href="#planificacion">Planificación</a>
+  <a href="#creacion">Creación</a>
+  <span class="sidenav__section">Guía de Estilos</span>
+  <a href="#colores">Colores</a>
+  <a href="#tipografia">Tipografía</a>
+  <a href="#componentes">Componentes</a>
+  <span class="sidenav__section">Multimedia</span>
+  <a href="#multimedia">Multimedia</a>
+  <a href="#accesibilidad">Accesibilidad</a>
+  <span class="sidenav__section">Documentación</span>
+  <a href="#incidencias">Incidencias</a>
+  <a href="#webgrafia">Webgrafía</a>
+</nav>
+
+<!-- ═══ CONTENIDO PRINCIPAL ═══ -->
+<main class="main">
+
+  <!-- ══ PORTADA ══ -->
+  <section class="cover" id="portada">
+    <div class="cover-inner">
+      <span class="cover-badge">Diseño de Interfaces Web · IES La Marisma</span>
+      <h1>Miss Whitney<br><em style="font-style:italic;color:var(--dorado)">Interfaz Web</em></h1>
+      <p class="sub">Planificación, diseño y validación de una interfaz web de restaurante. Proyecto completo con Bootstrap 5, Canvas API, multimedia optimizado y accesibilidad web.</p>
+      <dl class="cover-meta">
+        <div>
+          <dt>Autor</dt>
+          <dd>Dario Alfaro</dd>
+        </div>
+        <div>
+          <dt>Curso</dt>
+          <dd>2025 – 2026</dd>
+        </div>
+        <div>
+          <dt>Módulo</dt>
+          <dd>Diseño de Interfaces Web</dd>
+        </div>
+        <div>
+          <dt>Centro</dt>
+          <dd>IES La Marisma</dd>
+        </div>
+        <div>
+          <dt>GitHub</dt>
+          <dd><a href="https://github.com/darfixs/mw_laravelWeb" style="color:var(--dorado)">darfixs/mw_laravelWeb</a></dd>
+        </div>
+        <div>
+          <dt>Web</dt>
+          <dd><a href="https://ieslamarisma.net/proyectos/2026/darioalfaro/laravel/mw_laravelWeb/public/" style="color:var(--dorado)">Ver proyecto online</a></dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ══ PLANIFICACIÓN ══ -->
+  <section class="section" id="planificacion">
+    <span class="section-label">Parte 1</span>
+    <h2>Planificación del Proyecto</h2>
+
+    <h3>Descripción del proyecto</h3>
+    <p>Miss Whitney es una interfaz web para un restaurante real ubicado en la Avenida Escultora Miss Whitney, Huelva. El proyecto incluye: página de inicio con hero animado, galería de platos con filtros interactivos, sistema de reservas, solicitud de facturas, sección de contacto con mapa y sistema de reseñas de Google.</p>
+    <p>Desarrollado con <strong>Laravel 12 + PHP 8.2</strong> como framework backend, <strong>Bootstrap 5.3.3</strong> como framework CSS y JavaScript vanilla para la interactividad.</p>
+
+    <h3>Control de versiones — GitHub</h3>
+    <div class="tech-grid">
+      <span class="tech-badge"><i class="bi bi-github"></i> GitHub: darfixs/mw_laravelWeb</span>
+      <span class="tech-badge"><i class="bi bi-git"></i> 2 commits iniciales</span>
+      <span class="tech-badge"><i class="bi bi-branch"></i> Rama: main</span>
+    </div>
+    <p>Repositorio público en <a href="https://github.com/darfixs/mw_laravelWeb" style="color:var(--burdeos);font-weight:600">github.com/darfixs/mw_laravelWeb</a>. Se utilizó <code>.gitignore</code> de Laravel para excluir <code>.env</code>, <code>vendor/</code> y <code>node_modules/</code>.</p>
+
+    <h3>Tecnologías utilizadas</h3>
+    <div class="tech-grid">
+      <span class="tech-badge"><i class="bi bi-bootstrap-fill"></i> Bootstrap 5.3.3</span>
+      <span class="tech-badge"><i class="bi bi-filetype-php"></i> Laravel 12 / PHP 8.2</span>
+      <span class="tech-badge"><i class="bi bi-filetype-scss"></i> SASS / custom.scss</span>
+      <span class="tech-badge"><i class="bi bi-filetype-css"></i> CSS3 / shared.css</span>
+      <span class="tech-badge"><i class="bi bi-filetype-js"></i> JavaScript ES6</span>
+      <span class="tech-badge"><i class="bi bi-brush"></i> Canvas API</span>
+      <span class="tech-badge"><i class="bi bi-camera-video"></i> HTML5 Video</span>
+      <span class="tech-badge"><i class="bi bi-database"></i> MySQL</span>
+      <span class="tech-badge"><i class="bi bi-map"></i> Google Maps Embed</span>
+    </div>
+
+    <h3>Estructura de carpetas principales</h3>
+    <table>
+      <tr><th>Carpeta / Archivo</th><th>Contenido</th></tr>
+      <tr><td><code>resources/views/cliente/</code></td><td>Vistas Blade del frontend (index, galería, carta, contacto…)</td></tr>
+      <tr><td><code>resources/views/layouts/app.blade.php</code></td><td>Layout principal con nav, dock, footer, Bootstrap CDN</td></tr>
+      <tr><td><code>public/css/shared.css</code></td><td>Estilos personalizados globales</td></tr>
+      <tr><td><code>resources/sass/custom.scss</code></td><td>Variables SASS con tokens de marca Miss Whitney</td></tr>
+      <tr><td><code>public/images/</code></td><td>Logo PNG, favicon SVG, QR</td></tr>
+      <tr><td><code>public/video/restaurante.mp4</code></td><td>Vídeo de ambiente del restaurante (20 MB, H.264)</td></tr>
+      <tr><td><code>routes/web.php</code></td><td>Rutas Laravel (home, galería, carta, reservar, contacto…)</td></tr>
+    </table>
+  </section>
+
+  <!-- ══ CREACIÓN ══ -->
+  <section class="section" id="creacion">
+    <span class="section-label">Parte 2</span>
+    <h2>Creación con Bootstrap</h2>
+
+    <h3>Integración de Bootstrap 5.3.3</h3>
+    <p>Bootstrap se integra vía CDN en el layout principal (<code>app.blade.php</code>). El CSS de Bootstrap se carga <strong>antes</strong> de <code>shared.css</code> para que los estilos personalizados de Miss Whitney sobreescriban los de Bootstrap correctamente.</p>
+
+    <div class="font-sample" style="background:#2d2d2d;color:#f8f8f2;font-family:monospace;font-size:.85rem;border:none">
+      <span style="color:#6dc55a">&lt;!-- Bootstrap CSS (antes del CSS propio) --&gt;</span><br>
+      &lt;link rel="stylesheet" href="<span style="color:#e5c07b">https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css</span>"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"&gt;<br>
+      &lt;link rel="stylesheet" href="<span style="color:#e5c07b">{{ asset('css/shared.css') }}</span>"&gt;
+    </div>
+
+    <h3>Componentes Bootstrap utilizados</h3>
+    <table>
+      <tr><th>Componente</th><th>Dónde se usa</th><th>Estado</th></tr>
+      <tr><td>Nav Pills</td><td>Galería — filtro por categorías de platos</td><td><span class="badge-ok">✓ Implementado</span></td></tr>
+      <tr><td>Tooltips</td><td>Topbar — todos los enlaces de navegación</td><td><span class="badge-ok">✓ Implementado</span></td></tr>
+      <tr><td>Modal</td><td>Reservas y Solicitud de factura (overlay iframe)</td><td><span class="badge-ok">✓ Implementado</span></td></tr>
+      <tr><td>Bootstrap Icons 1.11.3</td><td>Cookie banner, dock, placeholders</td><td><span class="badge-ok">✓ Implementado</span></td></tr>
+    </table>
+
+    <h3>Diseño Responsive</h3>
+    <p>El diseño es <em>mobile-first</em> con tres breakpoints principales: móvil (&lt;600px), tablet (600–860px) y escritorio (&gt;860px). En móvil el topbar se oculta y aparece el dock inferior con navegación por iconos. En tablet, las columnas en grid pasan de 2 a 1.</p>
+
+    <h3>SASS — Variables de marca</h3>
+    <p>El archivo <code>resources/sass/custom.scss</code> centraliza los tokens de diseño de Miss Whitney como variables SASS que sobreescriben las de Bootstrap 5:</p>
+    <div class="font-sample" style="background:#2d2d2d;color:#f8f8f2;font-family:monospace;font-size:.83rem;border:none;line-height:1.8">
+      <span style="color:#c678dd">$primary</span>: <span style="color:#e5c07b">#8c1426</span>;<br>
+      <span style="color:#c678dd">$mw-burdeos</span>: <span style="color:#e5c07b">#8c1426</span>;<br>
+      <span style="color:#c678dd">$mw-dorado</span>: <span style="color:#e5c07b">#c89b3c</span>;<br>
+      <span style="color:#c678dd">$mw-crema</span>: <span style="color:#e5c07b">#fbf6ef</span>;<br>
+      <span style="color:#c678dd">$mw-marron</span>: <span style="color:#e5c07b">#5b3a26</span>;<br>
+      <span style="color:#c678dd">$border-radius-pill</span>: <span style="color:#e5c07b">999px</span>;
+    </div>
+  </section>
+
+  <!-- ══ GUÍA DE ESTILOS — COLORES ══ -->
+  <section class="section" id="colores">
+    <span class="section-label">Guía de Estilos</span>
+    <h2>Paleta de Colores</h2>
+    <p>Los colores de Miss Whitney evocan la calidez de un restaurante familiar: madera oscura, burdeos profundo, dorado cálido y crema suave.</p>
+
+    <div class="palette">
+      <div class="swatch">
+        <div class="swatch__color" style="background:#8c1426"></div>
+        <div class="swatch__info"><span class="swatch__name">Burdeos</span><span class="swatch__hex">#8c1426</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__color" style="background:#6e0f1c"></div>
+        <div class="swatch__info"><span class="swatch__name">Burdeos oscuro</span><span class="swatch__hex">#6e0f1c</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__color" style="background:#c89b3c"></div>
+        <div class="swatch__info"><span class="swatch__name">Dorado</span><span class="swatch__hex">#c89b3c</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__color" style="background:#3a251a"></div>
+        <div class="swatch__info"><span class="swatch__name">Roble oscuro</span><span class="swatch__hex">#3a251a</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__color" style="background:#5b3a26"></div>
+        <div class="swatch__info"><span class="swatch__name">Roble medio</span><span class="swatch__hex">#5b3a26</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__color" style="background:#fbf6ef;border:1px solid #e5ddd4"></div>
+        <div class="swatch__info"><span class="swatch__name">Crema</span><span class="swatch__hex">#fbf6ef</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__color" style="background:#f0e7d8"></div>
+        <div class="swatch__info"><span class="swatch__name">Crema oscura</span><span class="swatch__hex">#f0e7d8</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__color" style="background:#1a1a1a"></div>
+        <div class="swatch__info"><span class="swatch__name">Negro suave</span><span class="swatch__hex">#1a1a1a</span></div>
+      </div>
+    </div>
+
+    <h3>Uso semántico de colores</h3>
+    <table>
+      <tr><th>Color</th><th>Uso principal</th><th>Contraste WCAG</th></tr>
+      <tr><td>Burdeos <code>#8c1426</code></td><td>Botones primarios, enlaces activos, acentos de marca</td><td><span class="badge-ok">AA sobre crema</span></td></tr>
+      <tr><td>Dorado <code>#c89b3c</code></td><td>Estrellas, eyebrows, detalles decorativos</td><td><span class="badge-ok">AA sobre oscuro</span></td></tr>
+      <tr><td>Roble oscuro <code>#3a251a</code></td><td>Fondos hero, fondo reseñas, secciones oscuras</td><td><span class="badge-ok">AAA con crema</span></td></tr>
+      <tr><td>Crema <code>#fbf6ef</code></td><td>Fondo principal, texto sobre fondos oscuros</td><td><span class="badge-ok">AAA sobre burdeos</span></td></tr>
+    </table>
+  </section>
+
+  <!-- ══ TIPOGRAFÍA ══ -->
+  <section class="section" id="tipografia">
+    <span class="section-label">Guía de Estilos</span>
+    <h2>Tipografía</h2>
+    <p>Se utilizan dos familias tipográficas cargadas desde Google Fonts, elegidas para reflejar la dualidad entre elegancia clásica y legibilidad moderna.</p>
+
+    <div class="font-sample">
+      <div class="font-display-sample">Cormorant Garamond Regular</div>
+      <div class="font-italic-sample">Cormorant Garamond Italic</div>
+      <div class="font-meta">Google Fonts · Pesos: 400, 600 · Uso: títulos, eyebrows, el logo tipográfico, citas</div>
+    </div>
+
+    <div class="font-sample">
+      <div class="font-body-sample" style="font-size:1.2rem;font-weight:700">DM Sans Bold — Subtítulos y etiquetas</div>
+      <div class="font-body-sample" style="font-size:1rem">DM Sans Regular — Cuerpo de texto, párrafos descriptivos y elementos de navegación</div>
+      <div class="font-body-sample" style="font-size:.85rem;font-weight:300">DM Sans Light — Textos secundarios, metadatos</div>
+      <div class="font-meta">Google Fonts · Pesos: 300, 400, 500, 600, 700 · Uso: body, nav, botones, formularios</div>
+    </div>
+
+    <h3>Escala tipográfica</h3>
+    <table>
+      <tr><th>Elemento</th><th>Familia</th><th>Tamaño</th><th>Peso</th></tr>
+      <tr><td>H1 Hero</td><td>Cormorant Garamond</td><td>clamp(2.4rem, 9vw, 4.6rem)</td><td>400</td></tr>
+      <tr><td>H2 Sección</td><td>Cormorant Garamond</td><td>clamp(1.8rem, 4vw, 2.5rem)</td><td>400</td></tr>
+      <tr><td>Eyebrow</td><td>DM Sans</td><td>0.85rem</td><td>600 + letter-spacing</td></tr>
+      <tr><td>Body</td><td>DM Sans</td><td>1rem</td><td>400</td></tr>
+      <tr><td>Caption</td><td>DM Sans</td><td>0.85rem</td><td>300</td></tr>
+    </table>
+  </section>
+
+  <!-- ══ COMPONENTES ══ -->
+  <section class="section" id="componentes">
+    <span class="section-label">Guía de Estilos</span>
+    <h2>Componentes de Interfaz</h2>
+
+    <div class="comp-grid">
+
+      <div class="comp-card">
+        <h4>Botones</h4>
+        <div style="display:flex;flex-direction:column;gap:.6rem">
+          <button class="btn-mw">Reservar mesa</button>
+          <button class="btn-mw-ghost">Ver platos</button>
+          <button class="btn-mw-dorado"><i class="bi bi-star-fill"></i> Valorarnos</button>
+        </div>
+      </div>
+
+      <div class="comp-card">
+        <h4>Bootstrap Nav Pills</h4>
+        <ul class="nav nav-pills gap-2">
+          <li class="nav-item"><button class="nav-link active">Todos</button></li>
+          <li class="nav-item"><button class="nav-link">Tapas</button></li>
+          <li class="nav-item"><button class="nav-link">Marisco</button></li>
+          <li class="nav-item"><button class="nav-link">Postres</button></li>
+        </ul>
+        <p style="font-size:.8rem;margin-top:.8rem;color:var(--gris)">Usado en Galería para filtrar platos por categoría</p>
+      </div>
+
+      <div class="comp-card">
+        <h4>Bootstrap Tooltips</h4>
+        <div style="display:flex;gap:.8rem;flex-wrap:wrap">
+          <button class="btn-mw" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Ver nuestra galería">Galería</button>
+          <button class="btn-mw-ghost" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Reserva online">Reservar</button>
+        </div>
+        <p style="font-size:.8rem;margin-top:.8rem;color:var(--gris)">Pasa el ratón por los botones para ver los tooltips</p>
+      </div>
+
+      <div class="comp-card">
+        <h4>Favicon SVG</h4>
+        <div style="display:flex;align-items:center;gap:1rem">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="48" height="48" style="border-radius:8px">
+            <rect width="32" height="32" rx="8" fill="#8c1426"/>
+            <text x="50%" y="51%" dominant-baseline="central" text-anchor="middle" font-family="Georgia,serif" font-size="13" font-weight="700" letter-spacing="-0.5" fill="#fbf6ef">MW</text>
+          </svg>
+          <div style="font-size:.8rem;color:var(--gris)">Formato SVG escalable.<br>Fondo burdeos + texto crema.</div>
+        </div>
+      </div>
+
+      <div class="comp-card">
+        <h4>Canvas API — Partículas</h4>
+        <canvas id="mini-canvas" width="240" height="100" style="border-radius:8px;background:#3a251a;display:block"></canvas>
+        <p style="font-size:.8rem;margin-top:.6rem;color:var(--gris)">28 partículas doradas/crema flotantes en el hero. Respeta <code>prefers-reduced-motion</code>.</p>
+      </div>
+
+      <div class="comp-card">
+        <h4>Animaciones @keyframes</h4>
+        <div style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap">
+          <div style="width:50px;height:50px;background:var(--crema);border-radius:50%;display:grid;place-items:center;animation:floatDemo 3s ease-in-out infinite;box-shadow:0 8px 20px rgba(0,0,0,.2)">
+            <span style="font-size:1.4rem">🍷</span>
+          </div>
+          <div style="font-size:.82rem;color:var(--gris)">
+            <strong style="color:var(--roble-med)">@keyframes float</strong> — Logo hero<br>
+            <strong style="color:var(--roble-med)">@keyframes bounce</strong> — Scroll hint<br>
+            <strong style="color:var(--roble-med)">@keyframes cardIn</strong> — Cards galería<br>
+            <strong style="color:var(--roble-med)">@keyframes spinR</strong> — Loading spinner
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ MULTIMEDIA ══ -->
+  <section class="section" id="multimedia">
+    <span class="section-label">Partes 3 y 4</span>
+    <h2>Contenido Multimedia</h2>
+
+    <h3>Formatos utilizados y justificación</h3>
+    <table>
+      <tr><th>Formato</th><th>Elemento</th><th>Justificación</th></tr>
+      <tr><td><strong>SVG</strong></td><td>Favicon, iconos inline</td><td>Escalable sin pérdida, tamaño mínimo (&lt;1 KB). Ideal para logos e iconos.</td></tr>
+      <tr><td><strong>PNG</strong></td><td>Logo principal</td><td>Soporte de transparencia necesario para el logo sobre distintos fondos.</td></tr>
+      <tr><td><strong>WebP</strong></td><td>Imágenes de platos</td><td>30-50% menos peso que JPG con la misma calidad. Soporte universal en navegadores modernos.</td></tr>
+      <tr><td><strong>MP4 / H.264</strong></td><td>Vídeo de ambiente</td><td>Formato estándar web, compatible con todos los navegadores. Optimizado a 20 MB para la web.</td></tr>
+    </table>
+
+    <h3>Proceso de optimización de imágenes</h3>
+    <p>Las imágenes se optimizan con <strong>Squoosh</strong> (squoosh.app) antes de subirse al servidor:</p>
+    <ul style="color:var(--gris);padding-left:1.2rem;line-height:2">
+      <li>Redimensionado a la resolución de visualización máxima (no mayor de 1200px de ancho)</li>
+      <li>Conversión a <strong>WebP</strong> con calidad 80%</li>
+      <li>Fallback <strong>JPG</strong> para navegadores sin soporte WebP</li>
+      <li>Uso de <code>&lt;picture&gt;</code> con <code>&lt;source type="image/webp"&gt;</code></li>
+      <li>Atributo <code>loading="lazy"</code> en imágenes fuera del viewport inicial</li>
+    </ul>
+
+    <h3>Elementos multimedia implementados</h3>
+    <div class="comp-grid">
+      <div class="comp-card">
+        <h4><i class="bi bi-camera-video" style="color:var(--burdeos)"></i> Reproductor de vídeo HTML5</h4>
+        <p style="font-size:.85rem;color:var(--gris)">Elemento <code>&lt;video&gt;</code> con atributos <code>controls</code>, <code>muted</code>, <code>loop</code>, <code>playsinline</code> y <code>poster</code>. Incluye texto alternativo para navegadores sin soporte.</p>
+      </div>
+      <div class="comp-card">
+        <h4><i class="bi bi-images" style="color:var(--burdeos)"></i> Carrusel de platos</h4>
+        <p style="font-size:.85rem;color:var(--gris)">Carrusel personalizado con JavaScript puro usando <code>requestAnimationFrame</code> y <code>translate3d</code>. Sin dependencias externas. Velocidad de 0.5px/frame. Se pausa al pasar el ratón.</p>
+      </div>
+      <div class="comp-card">
+        <h4><i class="bi bi-stars" style="color:var(--burdeos)"></i> Canvas API</h4>
+        <p style="font-size:.85rem;color:var(--gris)">28 partículas doradas/crema animadas con <code>requestAnimationFrame</code>. Respeta <code>prefers-reduced-motion</code>. Usa <code>ResizeObserver</code> para adaptar el canvas al tamaño del hero.</p>
+      </div>
+      <div class="comp-card">
+        <h4><i class="bi bi-star-fill" style="color:var(--burdeos)"></i> Carrusel de reseñas</h4>
+        <p style="font-size:.85rem;color:var(--gris)">Dos filas animadas en sentidos opuestos con datos reales de la API de Google. Se re-mide cuando cargan las imágenes de avatar.</p>
+      </div>
+    </div>
+
+    <h3>Manual de buenas prácticas — Vídeo en la web</h3>
+    <table>
+      <tr><th>Aspecto</th><th>Práctica recomendada</th><th>Aplicado en Miss Whitney</th></tr>
+      <tr><td>Formato</td><td>MP4/H.264 como principal</td><td><span class="badge-ok">✓ MP4</span></td></tr>
+      <tr><td>Peso</td><td>Máximo 20-30 MB para web</td><td><span class="badge-ok">✓ 20 MB</span></td></tr>
+      <tr><td>Autoplay</td><td>Solo si es <code>muted</code></td><td><span class="badge-ok">✓ muted + controls</span></td></tr>
+      <tr><td>Accesibilidad</td><td>Atributo <code>aria-label</code> descriptivo</td><td><span class="badge-ok">✓ aria-label</span></td></tr>
+      <tr><td>Fallback</td><td>Texto alternativo si el navegador no soporta video</td><td><span class="badge-ok">✓ Texto alternativo</span></td></tr>
+      <tr><td>Poster</td><td>Imagen de previsualización mientras carga</td><td><span class="badge-ok">✓ Poster Unsplash</span></td></tr>
+      <tr><td>Licencia</td><td>Contenido con licencia libre</td><td><span class="badge-ok">✓ Licencia libre</span></td></tr>
+    </table>
+  </section>
+
+  <!-- ══ ACCESIBILIDAD ══ -->
+  <section class="section" id="accesibilidad">
+    <span class="section-label">Parte 5</span>
+    <h2>Accesibilidad Web</h2>
+    <p>Se han aplicado las principales pautas WCAG 2.1 durante el desarrollo de Miss Whitney.</p>
+
+    <table>
+      <tr><th>Criterio</th><th>Técnica aplicada</th><th>Estado</th></tr>
+      <tr><td>Texto alternativo</td><td>Atributo <code>alt</code> descriptivo en todas las imágenes informativas</td><td><span class="badge-ok">✓ Cumple</span></td></tr>
+      <tr><td>Contraste de color</td><td>Burdeos sobre crema supera 7:1 (AAA). Texto oscuro sobre crema supera 12:1</td><td><span class="badge-ok">✓ Cumple AAA</span></td></tr>
+      <tr><td>Navegación por teclado</td><td>Todos los elementos interactivos son accesibles via Tab. Tooltips en nav.</td><td><span class="badge-ok">✓ Cumple</span></td></tr>
+      <tr><td>Estructura semántica</td><td>Uso correcto de <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;footer&gt;</code>. Jerarquía H1→H3 correcta.</td><td><span class="badge-ok">✓ Cumple</span></td></tr>
+      <tr><td>ARIA labels</td><td><code>aria-label</code> en nav, canvas, vídeo, social links. <code>aria-hidden</code> en elementos decorativos.</td><td><span class="badge-ok">✓ Cumple</span></td></tr>
+      <tr><td>Movimiento reducido</td><td><code>prefers-reduced-motion: reduce</code> desactiva el canvas de partículas y carruseles</td><td><span class="badge-ok">✓ Cumple</span></td></tr>
+      <tr><td>Formularios</td><td>Labels asociados a inputs, mensajes de error claros, validación HTML5</td><td><span class="badge-ok">✓ Cumple</span></td></tr>
+      <tr><td>Contenido multimedia</td><td>Vídeo con <code>aria-label</code> descriptivo, canvas con <code>aria-hidden="true"</code></td><td><span class="badge-ok">✓ Cumple</span></td></tr>
+      <tr><td>Zoom 200%</td><td>Diseño fluido con <code>clamp()</code> y unidades relativas. Responsive verificado.</td><td><span class="badge-ok">✓ Cumple</span></td></tr>
+      <tr><td>Cookies y privacidad</td><td>Banner RGPD con opciones granulares. Las cookies de Google Maps son opcionales.</td><td><span class="badge-ok">✓ Cumple</span></td></tr>
+    </table>
+
+    <h3>Licencias del contenido multimedia</h3>
+    <p>Todo el contenido multimedia utilizado cumple con licencias de uso libre:</p>
+    <ul style="color:var(--gris);padding-left:1.2rem;line-height:2">
+      <li><strong>Imágenes:</strong> Unsplash (licencia gratuita, uso comercial permitido)</li>
+      <li><strong>Vídeo:</strong> Licencia libre, grabado para uso educativo</li>
+      <li><strong>Iconos:</strong> Bootstrap Icons (MIT License)</li>
+      <li><strong>Fuentes:</strong> Google Fonts (Open Font License)</li>
+      <li><strong>Logo y favicon:</strong> Creación propia (SVG)</li>
+    </ul>
+  </section>
+
+  <!-- ══ INCIDENCIAS ══ -->
+  <section class="section" id="incidencias">
+    <span class="section-label">Memoria</span>
+    <h2>Incidencias y Conclusiones</h2>
+
+    <h3>Incidencias durante el desarrollo</h3>
+    <div class="timeline">
+      <div class="tl-item">
+        <h4>Bootstrap JS — Error de integridad SRI</h4>
+        <p>El hash de integridad (<code>integrity</code>) generado para el script de Bootstrap no coincidía con el servido por jsDelivr, provocando que el navegador bloqueara la carga. <strong>Solución:</strong> Usar la etiqueta sin el atributo <code>integrity</code> o actualizar el hash correcto desde la documentación oficial.</p>
+      </div>
+      <div class="tl-item">
+        <h4>Canvas — Dimensiones 300×150 (valor por defecto HTML)</h4>
+        <p>El canvas se inicializaba con las dimensiones por defecto (300×150px) porque <code>getBoundingClientRect()</code> devolvía 0 al ejecutarse el script antes de que el layout estuviera calculado. <strong>Solución:</strong> Usar <code>hero.offsetWidth/offsetHeight</code> (elemento padre) + <code>ResizeObserver</code> para redibujar al cambiar el tamaño.</p>
+      </div>
+      <div class="tl-item">
+        <h4>Canvas — <code>prefers-reduced-motion</code> activado</h4>
+        <p>Las partículas no se mostraban en el ordenador de desarrollo porque la configuración de accesibilidad de Windows tenía activada la opción "Reducir animaciones". El script la detecta correctamente y omite el canvas. <strong>Conclusión:</strong> Comportamiento correcto — demuestra implementación de accesibilidad.</p>
+      </div>
+      <div class="tl-item">
+        <h4>Caché de vistas Blade en producción</h4>
+        <p>El servidor compilaba las plantillas Blade y las almacenaba en caché. Al subir archivos <code>.blade.php</code> actualizados, el servidor seguía sirviendo la versión antigua. <strong>Solución:</strong> Script <code>clear-cache.php</code> para eliminar las vistas compiladas de <code>storage/framework/views/</code> sin acceso SSH.</p>
+      </div>
+      <div class="tl-item">
+        <h4>Función <code>showCat()</code> no definida en carta</h4>
+        <p>Los botones de categoría de la página carta llamaban a <code>showCat()</code> pero la función nunca se había definido en ningún archivo JS, causando un error en consola y pestañas no funcionales. <strong>Solución:</strong> Añadir la función en un bloque <code>@push('scripts')</code> al final de la vista.</p>
+      </div>
+    </div>
+
+    <h3>Conclusiones</h3>
+    <p>El proyecto Miss Whitney ha resultado en una interfaz web completa y funcional que combina tecnologías modernas (Laravel, Bootstrap 5, Canvas API, HTML5 Video) con buenas prácticas de accesibilidad y rendimiento. Los principales aprendizajes han sido:</p>
+    <ul style="color:var(--gris);padding-left:1.2rem;line-height:2">
+      <li>La importancia del orden de carga de CSS para que los estilos personalizados sobreescriban correctamente los de Bootstrap</li>
+      <li>El comportamiento del Canvas API respecto al layout del navegador y la necesidad de usar <code>offsetWidth</code> en lugar de <code>getBoundingClientRect()</code> en ciertos contextos</li>
+      <li>La media query <code>prefers-reduced-motion</code> como herramienta fundamental de accesibilidad</li>
+      <li>La gestión de caché en entornos de producción Laravel sin acceso SSH</li>
+      <li>La optimización de imágenes con WebP como mejora significativa de rendimiento (30-50% menos peso)</li>
+    </ul>
+  </section>
+
+  <!-- ══ WEBGRAFÍA ══ -->
+  <section class="section" id="webgrafia">
+    <span class="section-label">Documentación</span>
+    <h2>Webgrafía</h2>
+
+    <h3>Bootstrap y CSS</h3>
+    <ul class="wg-list">
+      <li>
+        <a href="https://getbootstrap.esdocu.com/docs/5.3/getting-started/introduction/" target="_blank">Bootstrap 5.3 — Documentación oficial (ES)</a>
+        <small>Referencia para componentes, grid y utilities de Bootstrap 5.3.3</small>
+      </li>
+      <li>
+        <a href="https://bootstrap-cheatsheet.themeselection.com/" target="_blank">Bootstrap 5 Cheatsheet — ThemeSelection</a>
+        <small>Referencia rápida de clases y componentes Bootstrap 5</small>
+      </li>
+      <li>
+        <a href="https://getbootstrap.esdocu.com/docs/5.3/getting-started/accessibility/" target="_blank">Bootstrap — Accesibilidad</a>
+        <small>Guía de accesibilidad en componentes Bootstrap</small>
+      </li>
+    </ul>
+
+    <h3>Multimedia y animaciones</h3>
+    <ul class="wg-list">
+      <li>
+        <a href="https://www.eniun.com/formatos-archivos-video-conversiones-web/" target="_blank">Formatos de archivos de vídeo para la web — eniun.com</a>
+        <small>Guía sobre MP4, WebM, H.264 y optimización de vídeo para web</small>
+      </li>
+      <li>
+        <a href="https://www.eniun.com/animaciones-keyframes-animation/" target="_blank">Animaciones CSS con @keyframes — eniun.com</a>
+        <small>Tutorial sobre animaciones CSS avanzadas y propiedades animation-*</small>
+      </li>
+      <li>
+        <a href="https://developer.mozilla.org/es/docs/Web/API/Canvas_API" target="_blank">Canvas API — MDN Web Docs</a>
+        <small>Referencia completa del Canvas API: getContext, arc, clearRect, requestAnimationFrame</small>
+      </li>
+      <li>
+        <a href="https://squoosh.app/" target="_blank">Squoosh — Google</a>
+        <small>Herramienta de compresión y conversión de imágenes a WebP en el navegador</small>
+      </li>
+      <li>
+        <a href="https://www.freepik.com/" target="_blank">Freepik</a>
+        <small>Banco de recursos gráficos con licencias libres</small>
+      </li>
+      <li>
+        <a href="https://unsplash.com/" target="_blank">Unsplash</a>
+        <small>Fotografías de alta calidad con licencia libre para uso comercial y personal</small>
+      </li>
+    </ul>
+
+    <h3>Accesibilidad y usabilidad</h3>
+    <ul class="wg-list">
+      <li>
+        <a href="https://www.eniun.com/diseno-desarrollo-webs-accesibles-accesibilidad-web/" target="_blank">Diseño de webs accesibles — eniun.com</a>
+        <small>Principios WCAG y técnicas de accesibilidad web</small>
+      </li>
+      <li>
+        <a href="https://www.eniun.com/tutorial-usabilidad-web/" target="_blank">Tutorial de usabilidad web — eniun.com</a>
+        <small>Análisis de usabilidad, heurísticas de Nielsen y experiencia de usuario</small>
+      </li>
+      <li>
+        <a href="https://developer.mozilla.org/es/docs/Web/CSS/@media/prefers-reduced-motion" target="_blank">prefers-reduced-motion — MDN</a>
+        <small>Media query de accesibilidad para usuarios con sensibilidad al movimiento</small>
+      </li>
+    </ul>
+
+    <h3>Herramientas y framework</h3>
+    <ul class="wg-list">
+      <li>
+        <a href="https://laravel.com/docs/12.x" target="_blank">Laravel 12 — Documentación oficial</a>
+        <small>Framework PHP: rutas, vistas Blade, controladores, middleware</small>
+      </li>
+      <li>
+        <a href="https://fonts.google.com/" target="_blank">Google Fonts</a>
+        <small>Tipografías Cormorant Garamond y DM Sans (Open Font License)</small>
+      </li>
+      <li>
+        <a href="https://icons.getbootstrap.com/" target="_blank">Bootstrap Icons 1.11.3</a>
+        <small>Iconografía SVG con licencia MIT usada en el proyecto</small>
+      </li>
+      <li>
+        <a href="https://sitemaps.org/protocol.html" target="_blank">Sitemaps.org — Protocolo sitemap.xml</a>
+        <small>Especificación del formato sitemap.xml para SEO</small>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="page-footer">
+    <p>Miss Whitney · Interfaz Web · DIW 2025-26 · IES La Marisma · Dario Alfaro</p>
+    <p style="margin-top:.4rem">
+      <a href="https://github.com/darfixs/mw_laravelWeb">GitHub</a> ·
+      <a href="https://ieslamarisma.net/proyectos/2026/darioalfaro/laravel/mw_laravelWeb/public/">Ver web</a>
+    </p>
+  </footer>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Tooltips Bootstrap
+  document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
+
+  // Nav activa según scroll
+  const sections = document.querySelectorAll('section[id], footer');
+  const navLinks = document.querySelectorAll('.sidenav a');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const active = document.querySelector('.sidenav a[href="#' + e.target.id + '"]');
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.4 });
+  sections.forEach(s => obs.observe(s));
+
+  // Mini canvas de demostración
+  (function() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const c = document.getElementById('mini-canvas');
+    if (!c) return;
+    const ctx = c.getContext('2d');
+    const COLORS = [[200,155,60],[200,155,60],[251,246,239]];
+    const pts = Array.from({length:18}, () => ({
+      x: Math.random(), y: Math.random(),
+      r: Math.random()*2+1, speed: Math.random()*.3+.1,
+      drift: (Math.random()-.5)*.15, phase: Math.random()*Math.PI*2,
+      c: COLORS[Math.floor(Math.random()*3)]
+    }));
+    function draw(t) {
+      ctx.clearRect(0,0,240,100);
+      pts.forEach(p => {
+        const op = 0.55 + 0.35*(0.5+0.5*Math.sin(t*.001+p.phase));
+        ctx.beginPath(); ctx.arc(p.x*240, p.y*100, p.r, 0, Math.PI*2);
+        ctx.fillStyle = `rgba(${p.c},${op.toFixed(2)})`; ctx.fill();
+        p.y -= p.speed/100*40; p.x += p.drift/240*6;
+        if(p.y<-0.05){p.y=1.05;p.x=Math.random();}
+        if(p.x<0)p.x=1; if(p.x>1)p.x=0;
+      });
+      requestAnimationFrame(draw);
+    }
+    requestAnimationFrame(draw);
+  })();
+
+  // @keyframes float demo
+  const style = document.createElement('style');
+  style.textContent = '@keyframes floatDemo{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}';
+  document.head.appendChild(style);
+</script>
+</body>
+</html>
