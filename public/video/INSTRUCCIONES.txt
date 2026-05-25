@@ -1,0 +1,13 @@
+Sube aquí tu vídeo del restaurante con el nombre:
+
+    restaurante.mp4
+
+Formato recomendado: MP4 (H.264), resolución 1280x720 o 1920x1080, máximo 20 MB.
+
+Dónde conseguir vídeos gratuitos de restaurantes/comida:
+  - pexels.com (busca "restaurant", "food", "kitchen") → licencia gratuita
+  - pixabay.com → licencia gratuita
+  - coverr.co → vídeos de fondo gratuitos
+
+Una vez subido, el reproductor en la home aparecerá automáticamente
+y el cartel de "Sube el vídeo al servidor" desaparecerá.

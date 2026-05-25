@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "guia-estilos",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "3456", "--directory", "C:\\Users\\darek\\Downloads\\guia-estilos"],
+      "port": 3456
+    },
+    {
+      "name": "misswhitney-diw",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "3457", "--directory", "C:\\Users\\darek\\Downloads\\MissWhitneyWeb\\mw_laravelWeb\\DiseñoInterfacesWebMissWhitney"],
+      "port": 3457
+    }
+  ]
+}

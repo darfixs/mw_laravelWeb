@@ -1,0 +1,115 @@
+// ═══════════════════════════════════════════════════════════════
+//  Miss Whitney · Bootstrap 5 variable overrides + brand tokens
+//  Este archivo personaliza Bootstrap con los colores y tipografías
+//  del restaurante. Se importa ANTES de los partials de Bootstrap.
+// ═══════════════════════════════════════════════════════════════
+
+// ── 1. Brand tokens ─────────────────────────────────────────────
+$mw-burdeos:      #8c1426;
+$mw-burdeos-osc:  #6a0f1c;
+$mw-crema:        #fbf6ef;
+$mw-marron:       #5b3a26;
+$mw-gris:         #7a7068;
+$mw-negro:        #1a0f0a;
+
+// ── 2. Bootstrap variable overrides ─────────────────────────────
+//    Deben declararse antes del @import de Bootstrap
+
+// Colores principales
+$primary:         $mw-burdeos;
+$secondary:       $mw-marron;
+$light:           $mw-crema;
+$dark:            $mw-negro;
+
+// Tipografía
+$font-family-sans-serif: 'DM Sans', system-ui, -apple-system, sans-serif;
+$headings-font-family:   'Cormorant Garamond', Georgia, serif;
+
+// Fondo y texto base
+$body-bg:         $mw-crema;
+$body-color:      $mw-negro;
+
+// Bordes redondeados
+$border-radius:    0.75rem;
+$border-radius-lg: 1rem;
+$border-radius-pill: 999px;
+
+// Links
+$link-color:       $mw-burdeos;
+$link-hover-color: $mw-burdeos-osc;
+
+// Nav pills
+$nav-pills-link-active-bg:    $mw-burdeos;
+$nav-link-color:               $mw-marron;
+$nav-link-hover-color:         $mw-burdeos;
+
+// Tooltips
+$tooltip-bg:            #3a251a;
+$tooltip-color:         $mw-crema;
+$tooltip-border-radius: 8px;
+$tooltip-opacity:       1;
+$tooltip-font-size:     .82rem;
+$tooltip-padding-y:     .4rem;
+$tooltip-padding-x:     .7rem;
+
+// Badges
+$badge-font-size:        .72em;
+$badge-border-radius:    999px;
+$badge-padding-y:        .22rem;
+$badge-padding-x:        .55rem;
+$badge-font-weight:      700;
+
+// Botones
+$btn-border-radius:      999px;
+$btn-font-weight:        600;
+
+// Formularios
+$input-border-radius:    0.6rem;
+$input-focus-border-color: $mw-burdeos;
+$input-focus-box-shadow: 0 0 0 .2rem rgba($mw-burdeos, .18);
+
+// ── 3. Import Bootstrap (solo los módulos que usamos) ────────────
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+
+// Layout
+@import "bootstrap/scss/root";
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/grid";
+@import "bootstrap/scss/containers";
+
+// Componentes usados en el proyecto
+@import "bootstrap/scss/nav";         // nav-pills en /carta
+@import "bootstrap/scss/badge";       // badges de alérgenos
+@import "bootstrap/scss/tooltip";     // tooltips en nav y carta
+@import "bootstrap/scss/modal";       // base para modales
+@import "bootstrap/scss/buttons";     // botones con clase .btn
+
+// Utilidades
+@import "bootstrap/scss/utilities/api";
+
+// ── 4. Utilidades de marca personalizadas ────────────────────────
+.text-burdeos  { color: $mw-burdeos  !important; }
+.bg-burdeos    { background-color: $mw-burdeos !important; color: $mw-crema !important; }
+.text-marron   { color: $mw-marron   !important; }
+.bg-crema      { background-color: $mw-crema   !important; }
+
+// Botón primario con colores MW
+.btn-mw {
+  background-color: $mw-burdeos;
+  color: $mw-crema;
+  border: none;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: background .2s ease, box-shadow .2s ease;
+
+  &:hover, &:focus {
+    background-color: $mw-burdeos-osc;
+    color: $mw-crema;
+    box-shadow: 0 6px 18px rgba($mw-burdeos, .3);
+  }
+}
