@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('title','Galería · Miss Whitney')
+@section('description','Galería de platos de Miss Whitney — tapas, mariscos, arroces, postres y más. Descubre nuestra cocina familiar en Huelva.')
 
 @push('styles')
 <style>

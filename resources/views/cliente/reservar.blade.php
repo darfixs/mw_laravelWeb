@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('title','Reservar · Miss Whitney')
+@section('description','Reserva tu mesa en Miss Whitney, Huelva. Formulario rápido y confirmación inmediata. Grupos, celebraciones y menús especiales.')
 
 @push('styles')
 <style>

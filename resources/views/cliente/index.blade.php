@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('title','Miss Whitney · Bar & Cocina')
+@section('description','Miss Whitney, bar y restaurante en Huelva. Cocina familiar con tapas, arroces, mariscos y postres caseros. Reserva tu mesa online.')
 
 @push('styles')
 <style>

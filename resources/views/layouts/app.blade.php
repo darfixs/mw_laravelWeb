@@ -35,6 +35,9 @@
         <a class="navlink @if(request()->routeIs('galeria')) navlink--active @endif" href="{{ route('galeria') }}"
            data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Ver nuestra galería de platos">Galería</a>
         <span class="nav-sep" aria-hidden="true"></span>
+        <a class="navlink @if(request()->routeIs('carta')) navlink--active @endif" href="{{ route('carta') }}"
+           data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Explora nuestros platos y tapas">Carta</a>
+        <span class="nav-sep" aria-hidden="true"></span>
         <a class="navlink @if(request()->routeIs('reservar')) navlink--active @endif" href="{{ route('reservar') }}"
            data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Reserva tu mesa online">Reservar</a>
         <span class="nav-sep" aria-hidden="true"></span>
@@ -138,6 +141,7 @@
         <ul>
           <li><a href="{{ route('home') }}">Inicio</a></li>
           <li><a href="{{ route('galeria') }}">Galería</a></li>
+          <li><a href="{{ route('carta') }}">Carta</a></li>
           <li><a href="{{ route('reservar') }}">Reservar</a></li>
           <li><a href="{{ route('contacto') }}">Contacto</a></li>
           <li><a href="{{ route('solicitar.factura') }}">Solicitar factura</a></li>

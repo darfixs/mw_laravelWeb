@@ -1,2 +1,12 @@
 User-agent: *
-Disallow:
+Allow: /
+
+# Rutas privadas — no indexar
+Disallow: /admin/
+Disallow: /api/
+Disallow: /solicitar-factura
+Disallow: /clear-cache.php
+Disallow: /test-bootstrap.php
+
+# Sitemap
+Sitemap: https://ieslamarisma.net/proyectos/2026/darioalfaro/laravel/mw_laravelWeb/public/sitemap.xml

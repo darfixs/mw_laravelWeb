@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('title','Carta · Miss Whitney')
+@section('description','Carta del restaurante Miss Whitney en Huelva — tapas, entrantes, platos principales, mariscos y postres caseros a precios familiares.')
 @push('styles')
 <style>
   .cursor-dot {

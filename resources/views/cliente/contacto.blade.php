@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('title','Contacto · Miss Whitney')
+@section('description','Contacta con Miss Whitney — Avenida Escultora Miss Whitney 15, Huelva. Teléfono: 959 254 960. Horario de lunes a sábado.')
 @push('styles')
 <style>
 .contact-grid {
